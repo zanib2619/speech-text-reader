@@ -5,6 +5,10 @@ const readBtn = document.getElementById('read');
 const toggleBtn = document.getElementById('toggle');
 const closeBtn = document.getElementById('close');
 
+
+data.forEach(createBox);
+
+// Create speech boxes
 function createBox(item) {
   const box = document.createElement('div');
 
@@ -86,3 +90,4 @@ readBtn.addEventListener('click', () => {
 });
 
 getVoices();
+
