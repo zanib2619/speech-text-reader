@@ -4,6 +4,34 @@ const textarea = document.getElementById('text');
 const readBtn = document.getElementById('read');
 const toggleBtn = document.getElementById('toggle');
 const closeBtn = document.getElementById('close');
+
+function createBox(item) {
+  const box = document.createElement('div');
+
+  const { image, text } = item;
+
+  box.classList.add('box');
+
+  box.innerHTML = `
+    <img src="${image}" alt="${text}" />
+    <p class="info">${text}</p>
+  `;
+
+  box.addEventListener('click', () => {
+    setTextMessage(text);
+    speakText();
+
+    // Add active effect
+    box.classList.add('active');
+    setTimeout(() => box.classList.remove('active'), 800);
+  });
+
+  main.appendChild(box);
+}
+
+// Init speech synth
+const message = new SpeechSynthesisUtterance();
+
 // Store voices
 let voices = [];
 
